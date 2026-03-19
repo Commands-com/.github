@@ -2,93 +2,92 @@
 
 # Commands.com
 
-**Local-first AI workspaces for independent models that converge.**
+**Local AI rooms where independent models converge.**
 
+[![Beta](https://img.shields.io/badge/Beta-Sign%20Up-2563EB.svg)](https://commands.com/beta/)
 [![Gateway](https://img.shields.io/badge/Gateway-OSS-0B0D0E.svg)](https://github.com/Commands-com/gateway)
-[![Agent Workspace](https://img.shields.io/badge/Agent%20Workspace-Desktop%20%26%20CLI-43853d.svg)](https://github.com/Commands-com/agent-workspace)
-[![Plugins](https://img.shields.io/badge/Plugins-Agents%20%7C%20Rooms%20%7C%20Interfaces-2563EB.svg)](https://github.com/Commands-com/room-plugins)
-[![Relay Security](https://img.shields.io/badge/Relay-E2EE-8B5CF6.svg)](https://github.com/Commands-com/gateway)
+[![Room Plugins](https://img.shields.io/badge/Rooms-Plugins-14B8A6.svg)](https://github.com/Commands-com/room-plugins)
+[![E2EE](https://img.shields.io/badge/Relay-E2EE-8B5CF6.svg)](https://github.com/Commands-com/gateway)
 
-Build AI workflows that run where your code lives, connect through an encrypted gateway, and stay extensible with plugins and rooms instead of forks.
-
-```text
-Local Agent Workspace + Plugins  <── E2EE / Webhooks / Shares ──>  OSS Gateway  <──> Browser / Desktop Clients
-```
+Orchestrated rooms running on your machine. Multiple AI models explore, build, and audit independently — converging on solutions proven by real metrics, not model confidence.
 
 </div>
 
 ---
 
-## Platform
+## Why Convergence
 
-Commands.com is a local-first platform for running AI near your code, sharing access through a self-hosted relay, and composing provider, room, and interface plugins into structured multi-model systems.
+One model playing five roles still has one set of blind spots. Giving it five personas doesn't give you five perspectives — it gives you one perspective in five costumes.
+
+Commands.com runs **rooms** — orchestrated workspaces where independent models with different training data, architectures, and tooling converge on a shared objective through a structured pipeline.
+
+> The most reliable AI is not one model. It's independent models that converge.
+>
+> — [The Great Convergence](https://thegreatconvergence.com)
+
+## The Pipeline
+
+Every room follows a convergence cycle:
+
+```
+Fan Out          →    Synthesize       →    Build            →    Audit
+Multiple             Merge, dedup,         Implement top         Independent
+explorers            rank by               candidates,           validation for
+discover             consensus             benchmark with        production risk
+independently                              real metrics
+```
+
+```
+Explored: 12  →  Synthesized: 5  →  Built: 3  →  Converged: 1
+```
+
+## Agent Roles
+
+| Role | What it does | Why a separate model |
+|---|---|---|
+| **Explorer** | Casts the widest net across candidates | Different search corpora and training data maximize diversity of discovery |
+| **Builder** | Implements with precision, benchmarks empirically | The strongest agentic coder, informed by consensus from explorers |
+| **Auditor** | Validates for production safety and correctness | Independent scrutiny catches what the builder's biases miss |
+
+## Platform
 
 | Repo | What it does | Stack |
 |---|---|---|
 | [gateway](https://github.com/Commands-com/gateway) | Self-hosted encrypted relay, OAuth/OIDC, device routing, shares, webhook tunnel, admin console | Go |
-| [agent-workspace](https://github.com/Commands-com/agent-workspace) | Local runtime, CLI, desktop app, audit logging, remote chat, MCP passthrough | TypeScript, Electron, Node.js |
-| [room-plugins](https://github.com/Commands-com/room-plugins) | External room orchestrators for multi-step and multi-agent workflows | JavaScript plugins |
-| [interface-plugins](https://github.com/Commands-com/interface-plugins) | External interface providers for webhook and Slack-style integrations | JavaScript plugins |
-| [agent-plugins](https://github.com/Commands-com/agent-plugins) | External provider plugins for model and runtime integrations | JavaScript plugins |
+| [agent-workspace](https://commands.com/beta/) | Local runtime, rooms engine, desktop app, CLI, audit logging, remote chat, MCP passthrough | TS / Electron / Node |
+| [room-plugins](https://github.com/Commands-com/room-plugins) | Room orchestrators for domain-specific convergence — SQL optimization, FFT autotuning, and more | JS plugins |
+| [interface-plugins](https://github.com/Commands-com/interface-plugins) | External interface providers for webhook and Slack-style integrations | JS plugins |
+| [agent-plugins](https://github.com/Commands-com/agent-plugins) | Provider plugins that make model diversity real instead of cosmetic | JS plugins |
 
-## Core Ideas
+## Rooms in Practice
 
-| | |
-|---|---|
-| **Local-first execution** | Agents run near your code, files, MCP servers, and internal systems |
-| **Independent model convergence** | Reliability improves when genuinely different models explore, build, and audit independently, then agree |
-| **Room-based specialization** | Rooms make workflows explicit so roles like exploration, synthesis, building, and auditing are reusable instead of improvised |
-| **Encrypted relay** | Gateway routes sessions and events without becoming the place your work lives |
-| **Bring your own infrastructure** | The relay is OSS and self-hostable |
-| **Plugin-first extension model** | Agents, rooms, and interfaces can be extended in separate repos |
-| **Workspace + control plane** | The local workspace and relay stay cleanly separated |
+**Postgres Query Optimizer** — Explorers independently discover index strategies and query rewrites. The builder implements each candidate against a real Postgres instance, measuring actual execution time. The auditor validates for production safety.
 
-## How The Pieces Fit
+**FFT Autotune** — Explorers search for SIMD vectorization strategies across Apple Silicon architectures. The builder compiles and benchmarks each kernel variant. The auditor validates numerical accuracy. Convergence means the fastest correct implementation wins.
 
-1. Start the [agent-workspace](https://github.com/Commands-com/agent-workspace) on your machine.
-2. Connect it to the [gateway](https://github.com/Commands-com/gateway) for auth, routing, session sharing, and webhook ingress.
-3. Add custom providers from [agent-plugins](https://github.com/Commands-com/agent-plugins) to bring different model families and runtimes into the same workspace.
-4. Add orchestrators from [room-plugins](https://github.com/Commands-com/room-plugins) to fan out work, synthesize findings, and route specialized roles.
-5. Add webhook or chat-style ingress from [interface-plugins](https://github.com/Commands-com/interface-plugins).
+## Security
 
-## What We Optimize For
+- End-to-end encrypted relay (AES-256-GCM) — we can't read your data, even if we wanted to
+- Rooms, agents, code, and data stay on your machine
+- Self-hosted gateway option for teams that want infrastructure ownership
+- Zero-knowledge architecture — by design, not by policy
 
-- Your code stays local.
-- Different models can stay genuinely different instead of pretending to be a team through prompt personas.
-- Rooms and plugins make specialization explicit and reusable.
-- The gateway is a relay and control plane, not your runtime.
-- Teams can share agents and interfaces without collapsing everything into one monolith.
+## Get Started
 
-## Start Here
+**[Sign up for the beta](https://commands.com/beta/)** to get early access to the desktop app and start running rooms locally.
 
 ```bash
 # Self-host the relay
 git clone https://github.com/Commands-com/gateway.git
 
-# Run the local workspace
-git clone https://github.com/Commands-com/agent-workspace.git
-
-# Extend the platform
+# Extend with plugins
 git clone https://github.com/Commands-com/room-plugins.git
-git clone https://github.com/Commands-com/interface-plugins.git
 git clone https://github.com/Commands-com/agent-plugins.git
+git clone https://github.com/Commands-com/interface-plugins.git
 ```
 
-## Repo Focus
+<div align="center">
 
-- **Gateway**: self-hosted encrypted relay with console, OAuth, device routing, shares, and webhook tunneling.
-- **Agent Workspace**: local CLI and desktop app for running agents, chatting remotely, and managing multi-model workflows near your code.
-- **Room Plugins**: external orchestrator types for structured workflows, specialization, and multi-agent collaboration.
-- **Interface Plugins**: ingress adapters for external systems and webhook-style integrations.
-- **Agent Plugins**: provider and runtime plugins that make model diversity real instead of cosmetic.
+[commands.com](https://commands.com) · [The Great Convergence](https://thegreatconvergence.com) · [Discord](https://discord.gg/snk8BEHfRd)
 
-## Security Model
-
-- End-to-end encrypted relay sessions between clients and local agents.
-- Local execution for code access, tools, and MCP servers.
-- Clear split between runtime state and relay/control-plane concerns.
-- Self-hosted gateway option for teams that want infrastructure ownership.
-
-## Build With Us
-
-If you want to self-host, start with [gateway](https://github.com/Commands-com/gateway). If you want to run agents locally, start with [agent-workspace](https://github.com/Commands-com/agent-workspace). If you want to build specialized, multi-model workflows, start with [room-plugins](https://github.com/Commands-com/room-plugins) and [agent-plugins](https://github.com/Commands-com/agent-plugins). If you want external ingress, add [interface-plugins](https://github.com/Commands-com/interface-plugins).
+</div>
