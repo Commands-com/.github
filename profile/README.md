@@ -30,7 +30,7 @@ Commands.com runs **rooms** — orchestrated workspaces where independent models
 Every room follows a convergence cycle:
 
 ```
-Fan Out          →    Synthesize       →    Build            →    Audit
+Fan Out          →   Synthesize       →    Build            →    Audit
 Multiple             Merge, dedup,         Implement top         Independent
 explorers            rank by               candidates,           validation for
 discover             consensus             benchmark with        production risk
